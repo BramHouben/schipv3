@@ -18,7 +18,11 @@ namespace schipv3.Classes
         public Schip(int lengte, int breedte)
         {
             double helft = (double) breedte / 2;
-            helft2 = helft - 1;
+            helft2 = helft ;
+            if ((helft2 % 1) > 0)
+            {
+                helft2 += 0.5;
+            }
             MaximaalAantalRijen = lengte;
             MaxBreedteRijen = breedte;
             //  Dit is wat maximaal op het schip mag
@@ -124,7 +128,7 @@ namespace schipv3.Classes
                     {
                         if (CheckVerschil() == true)
                         {
-                            foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek <= helft2))
+                            foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek < helft2))
                             {
                                 int breedte = stapel.BreedtePlek;
                                 if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
@@ -143,11 +147,8 @@ namespace schipv3.Classes
                         }
                         else
                         {
-                            if ((helft2 %1)> 0 )
-                            {
-                                helft2 += 1;
-                            }
-                            foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek > helft2))
+                         
+                            foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek >= helft2))
                             {
                                 int breedte = stapel.BreedtePlek;
                                 if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
@@ -159,7 +160,7 @@ namespace schipv3.Classes
                                     HuidigGewichtSchip += container.Gewicht;
                                     stapel.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdGekoeld.RemoveAt(0);
-                                    helft2 -= 1;
+                                  
                                     break;
                                    
                                 }
