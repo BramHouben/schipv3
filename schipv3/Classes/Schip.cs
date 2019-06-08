@@ -159,7 +159,9 @@ namespace schipv3.Classes
                                     HuidigGewichtSchip += container.Gewicht;
                                     stapel.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdGekoeld.RemoveAt(0);
+                                    helft2 -= 1;
                                     break;
+                                   
                                 }
                                 breedte++;
                             }
