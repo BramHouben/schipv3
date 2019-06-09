@@ -181,6 +181,7 @@ namespace schipv3.Classes
                         }
                     }
                 }
+         
             }
 
         }
@@ -223,7 +224,12 @@ namespace schipv3.Classes
                             }
                             else
                             {
+                                if (rij.RijNummer == MaximaalAantalRijen-1)
+                                {//voor de laatse rij fix
+                                    GewichtLinks += container.Gewicht;
+                                }
                                 continue;
+                            
                             }
                         }
                         else
@@ -265,6 +271,10 @@ namespace schipv3.Classes
 
                         //break;
                     }
+                }
+                else
+                {
+                    GesoorteerdNormaal.Clear();
                 }
             }
         }
