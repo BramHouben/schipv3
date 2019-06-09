@@ -7,10 +7,10 @@ namespace schipv3.Classes
     public class Schip
     {
         //  SchipInfo
-        public int HuidigGewichtSchip;
+        private int HuidigGewichtSchip;
 
-        public int MaxGewichtSchip;
-        public double helft2;
+        private int MaxGewichtSchip;
+        private double helft2;
 
         public Schip()
         {
@@ -31,10 +31,10 @@ namespace schipv3.Classes
         }
 
         // lijsten voor containers
-        public List<Container> Normaal = new List<Container>();
+        private List<Container> Normaal = new List<Container>();
 
-        public List<Container> Gekoeld = new List<Container>();
-        public List<Container> Waardevol = new List<Container>();
+        private List<Container> Gekoeld = new List<Container>();
+        private List<Container> Waardevol = new List<Container>();
         private List<Container> GesoorteerdNormaal;
         private List<Container> GesoorteerdGekoeld;
         private List<Container> GesoorteerdWaardevol;
@@ -45,13 +45,13 @@ namespace schipv3.Classes
         // rij info
         public int MaxBreedteRijen;
 
-        public int MaximaalAantalRijen;
+        private int MaximaalAantalRijen;
 
         // kant info
-        public double GewichtLinks = 1;
+        private double GewichtLinks = 1;
 
-        public double GewichtRechts = 1;
-        public int GewichtMidden = 1;
+        private double GewichtRechts = 1;
+        private int GewichtMidden = 1;
 
    
 
