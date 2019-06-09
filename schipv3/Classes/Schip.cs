@@ -53,7 +53,10 @@ namespace schipv3.Classes
         private double GewichtRechts = 1;
         private int GewichtMidden = 1;
 
-   
+        internal void PlaatsenWaardevol()
+        {
+            throw new NotImplementedException();
+        }
 
         internal bool OverMinimaalGewicht()
         {

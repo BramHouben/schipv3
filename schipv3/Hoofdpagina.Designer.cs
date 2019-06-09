@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hoofdpagina));
             this.BtnSchip = new System.Windows.Forms.Button();
             this.NudLengte = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,15 +44,19 @@
             this.btnWegvaren = new System.Windows.Forms.Button();
             this.btnmaakveelcontainers = new System.Windows.Forms.Button();
             this.Aantalcontainers = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Aantalcontainers)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSchip
             // 
-            this.BtnSchip.Location = new System.Drawing.Point(573, 173);
+            this.BtnSchip.Location = new System.Drawing.Point(74, 86);
             this.BtnSchip.Name = "BtnSchip";
             this.BtnSchip.Size = new System.Drawing.Size(75, 23);
             this.BtnSchip.TabIndex = 0;
@@ -61,7 +66,7 @@
             // 
             // NudLengte
             // 
-            this.NudLengte.Location = new System.Drawing.Point(573, 106);
+            this.NudLengte.Location = new System.Drawing.Point(74, 19);
             this.NudLengte.Minimum = new decimal(new int[] {
             1,
             0,
@@ -79,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(506, 112);
+            this.label1.Location = new System.Drawing.Point(7, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 2;
@@ -88,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(509, 142);
+            this.label2.Location = new System.Drawing.Point(10, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 3;
@@ -96,7 +101,7 @@
             // 
             // NudBreedte
             // 
-            this.NudBreedte.Location = new System.Drawing.Point(573, 142);
+            this.NudBreedte.Location = new System.Drawing.Point(74, 55);
             this.NudBreedte.Minimum = new decimal(new int[] {
             1,
             0,
@@ -118,14 +123,14 @@
             "Gekoeld",
             "Waardevol",
             "Normaal"});
-            this.LbSoort.Location = new System.Drawing.Point(67, 81);
+            this.LbSoort.Location = new System.Drawing.Point(34, 23);
             this.LbSoort.Name = "LbSoort";
             this.LbSoort.Size = new System.Drawing.Size(120, 95);
             this.LbSoort.TabIndex = 5;
             // 
             // BtnToevoegenContainer
             // 
-            this.BtnToevoegenContainer.Location = new System.Drawing.Point(67, 250);
+            this.BtnToevoegenContainer.Location = new System.Drawing.Point(34, 192);
             this.BtnToevoegenContainer.Name = "BtnToevoegenContainer";
             this.BtnToevoegenContainer.Size = new System.Drawing.Size(120, 23);
             this.BtnToevoegenContainer.TabIndex = 6;
@@ -135,7 +140,7 @@
             // 
             // NUDcontainer
             // 
-            this.NUDcontainer.Location = new System.Drawing.Point(67, 209);
+            this.NUDcontainer.Location = new System.Drawing.Point(34, 151);
             this.NUDcontainer.Maximum = new decimal(new int[] {
             30000,
             0,
@@ -203,7 +208,7 @@
             // 
             // btnmaakveelcontainers
             // 
-            this.btnmaakveelcontainers.Location = new System.Drawing.Point(67, 347);
+            this.btnmaakveelcontainers.Location = new System.Drawing.Point(34, 289);
             this.btnmaakveelcontainers.Name = "btnmaakveelcontainers";
             this.btnmaakveelcontainers.Size = new System.Drawing.Size(75, 23);
             this.btnmaakveelcontainers.TabIndex = 13;
@@ -213,39 +218,63 @@
             // 
             // Aantalcontainers
             // 
-            this.Aantalcontainers.Location = new System.Drawing.Point(67, 311);
+            this.Aantalcontainers.Location = new System.Drawing.Point(34, 253);
             this.Aantalcontainers.Name = "Aantalcontainers";
             this.Aantalcontainers.Size = new System.Drawing.Size(120, 20);
             this.Aantalcontainers.TabIndex = 14;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.NudLengte);
+            this.groupBox1.Controls.Add(this.BtnSchip);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.NudBreedte);
+            this.groupBox1.Location = new System.Drawing.Point(530, 97);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(212, 114);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.LbSoort);
+            this.groupBox2.Controls.Add(this.BtnToevoegenContainer);
+            this.groupBox2.Controls.Add(this.Aantalcontainers);
+            this.groupBox2.Controls.Add(this.NUDcontainer);
+            this.groupBox2.Controls.Add(this.btnmaakveelcontainers);
+            this.groupBox2.Location = new System.Drawing.Point(72, 38);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 324);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
             // 
             // Hoofdpagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1278, 657);
-            this.Controls.Add(this.Aantalcontainers);
-            this.Controls.Add(this.btnmaakveelcontainers);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnWegvaren);
             this.Controls.Add(this.btnIndelen);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.LbContainers);
-            this.Controls.Add(this.NUDcontainer);
-            this.Controls.Add(this.BtnToevoegenContainer);
-            this.Controls.Add(this.LbSoort);
-            this.Controls.Add(this.NudBreedte);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.NudLengte);
-            this.Controls.Add(this.BtnSchip);
             this.Name = "Hoofdpagina";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Aantalcontainers)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -266,6 +295,8 @@
         private System.Windows.Forms.Button btnWegvaren;
         private System.Windows.Forms.Button btnmaakveelcontainers;
         private System.Windows.Forms.NumericUpDown Aantalcontainers;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

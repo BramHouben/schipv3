@@ -44,6 +44,7 @@ namespace schipv3
             schip.SoorterenLijstenOpGewicht();
             schip.PlaatsenGekoeld();
             schip.PlaatsenNormaal();
+            schip.PlaatsenWaardevol();
         }
         private void BtnIndelen_Click(object sender, EventArgs e)
         {
