@@ -20,8 +20,13 @@ namespace schipv3.Classes
         {
             double helft = (double) breedte / 2;
             helft2 = helft ;
-            if ((helft2 % 1) > 0)
+            if (breedte==1)
             {
+                helft2 = 1;
+            }
+            else if ((helft2 % 1) > 0)
+            {
+                
                 helft2 -= 0.5;
                 RijMidden = helft2;
             }
@@ -212,7 +217,16 @@ namespace schipv3.Classes
                                     container.Hoogte = stapel.Containers.Count;
                                     container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
                                     stapel.Containers.Add(container);
-                                    GewichtLinks += container.Gewicht;
+                                    // fix 1 rij//////////////////////////////
+                                    if (helft2 == 1)
+                                    {
+                                        GewichtLinks = 1;
+                                    }
+                                    else
+                                    {
+                                        GewichtLinks += container.Gewicht;
+                                    }
+                                    ////////////////////////////////////////
                                     HuidigGewichtSchip += container.Gewicht;
                                     stapel.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdNormaal.RemoveAt(0);
@@ -413,10 +427,7 @@ namespace schipv3.Classes
                             {
                                 if (ZoekenContainer.Plek == null)
                                 {
-
-
                                     return false;
-
                                 }
                                 break;
                             }
