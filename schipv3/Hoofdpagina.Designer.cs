@@ -41,9 +41,12 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.btnIndelen = new System.Windows.Forms.Button();
             this.btnWegvaren = new System.Windows.Forms.Button();
+            this.btnmaakveelcontainers = new System.Windows.Forms.Button();
+            this.Aantalcontainers = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Aantalcontainers)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnSchip
@@ -198,11 +201,30 @@
             this.btnWegvaren.UseVisualStyleBackColor = true;
             this.btnWegvaren.Click += new System.EventHandler(this.BtnWegvaren_Click);
             // 
+            // btnmaakveelcontainers
+            // 
+            this.btnmaakveelcontainers.Location = new System.Drawing.Point(67, 347);
+            this.btnmaakveelcontainers.Name = "btnmaakveelcontainers";
+            this.btnmaakveelcontainers.Size = new System.Drawing.Size(75, 23);
+            this.btnmaakveelcontainers.TabIndex = 13;
+            this.btnmaakveelcontainers.Text = "button1";
+            this.btnmaakveelcontainers.UseVisualStyleBackColor = true;
+            this.btnmaakveelcontainers.Click += new System.EventHandler(this.Btnmaakveelcontainers_Click);
+            // 
+            // Aantalcontainers
+            // 
+            this.Aantalcontainers.Location = new System.Drawing.Point(67, 311);
+            this.Aantalcontainers.Name = "Aantalcontainers";
+            this.Aantalcontainers.Size = new System.Drawing.Size(120, 20);
+            this.Aantalcontainers.TabIndex = 14;
+            // 
             // Hoofdpagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1278, 657);
+            this.Controls.Add(this.Aantalcontainers);
+            this.Controls.Add(this.btnmaakveelcontainers);
             this.Controls.Add(this.btnWegvaren);
             this.Controls.Add(this.btnIndelen);
             this.Controls.Add(this.listBox2);
@@ -221,6 +243,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Aantalcontainers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +264,8 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button btnIndelen;
         private System.Windows.Forms.Button btnWegvaren;
+        private System.Windows.Forms.Button btnmaakveelcontainers;
+        private System.Windows.Forms.NumericUpDown Aantalcontainers;
     }
 }
 

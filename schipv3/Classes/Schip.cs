@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace schipv3.Classes
@@ -51,6 +52,8 @@ namespace schipv3.Classes
 
         public double GewichtRechts = 1;
         public int GewichtMidden = 1;
+
+   
 
         internal bool OverMinimaalGewicht()
         {
@@ -117,6 +120,15 @@ namespace schipv3.Classes
                 CheckGewicht(container);
             }
         }
+        internal void PlaatsenNormaal()
+        {
+            foreach (Container container in GesoorteerdNormaal.ToList())
+            {
+                CheckGewichtNormaal(container);
+            }
+        }
+
+
 
         private void CheckGewicht(Container container)
         {
@@ -163,6 +175,60 @@ namespace schipv3.Classes
                                   
                                     break;
                                    
+                                }
+                                breedte++;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        private void CheckGewichtNormaal(Container container)
+        {
+            foreach (Rij rij in Rijen)
+            {
+                if (HuidigGewichtSchip < MaxGewichtSchip)
+                {
+                    if (GesoorteerdNormaal.Count > 0)
+                    {
+                        if (CheckVerschil() == true)
+                        {
+                            foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek < helft2))
+                            {
+                                int breedte = stapel.BreedtePlek;
+                                if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
+                                {
+                                    container.Hoogte = stapel.Containers.Count;
+                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
+                                    stapel.Containers.Add(container);
+                                    GewichtLinks += container.Gewicht;
+                                    HuidigGewichtSchip += container.Gewicht;
+                                    stapel.HuidigGewichtStapel += container.Gewicht;
+                                    GesoorteerdNormaal.RemoveAt(0);
+                                    break;
+                                }
+                                breedte++;
+                            }
+                        }
+                        else
+                        {
+
+                            foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek >= helft2))
+                            {
+                                int breedte = stapel.BreedtePlek;
+                                if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
+                                {
+                                    container.Hoogte = stapel.Containers.Count;
+                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
+                                    stapel.Containers.Add(container);
+                                    GewichtRechts += container.Gewicht;
+                                    HuidigGewichtSchip += container.Gewicht;
+                                    stapel.HuidigGewichtStapel += container.Gewicht;
+                                    GesoorteerdNormaal.RemoveAt(0);
+
+                                    break;
+
                                 }
                                 breedte++;
                             }

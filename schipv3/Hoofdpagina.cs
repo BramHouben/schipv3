@@ -43,6 +43,7 @@ namespace schipv3
         {
             schip.SoorterenLijstenOpGewicht();
             schip.PlaatsenGekoeld();
+            schip.PlaatsenNormaal();
         }
         private void BtnIndelen_Click(object sender, EventArgs e)
         {
@@ -81,6 +82,16 @@ namespace schipv3
             {
                 listBox2.Items.Add(item).ToString();
             }
+        }
+
+        private void Btnmaakveelcontainers_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Aantalcontainers.Value; i++)
+            {
+                Classes.Container container = new Classes.Container("Normaal", 30000);
+                schip.ToevoegenContainer(container);
+            }
+       
         }
     }
 }
