@@ -10,7 +10,7 @@ namespace schipv3.Classes
     {
         public string Soort;
         public int[,,] Plek;
-
+        public int[] PlekNormaleArray;
         public Container(string soort, int gewicht)
         {
             Soort = soort;
@@ -20,7 +20,12 @@ namespace schipv3.Classes
             {
                 throw new System.ArgumentException("Pas het gewicht aan!");
             }
+
         }
+
+        public int Breedte { get; set; }
+
+        public int Rijnummer { get; set; }
 
         public int Gewicht { get; set; }
 
