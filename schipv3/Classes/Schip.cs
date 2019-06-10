@@ -6,11 +6,11 @@ namespace schipv3.Classes
     public class Schip
     {
         //  SchipInfo
-        private int HuidigGewichtSchip;
+        public int HuidigGewichtSchip;
 
-        private int MaxGewichtSchip;
-        private double helft2;
-        private double RijMidden;
+        public int MaxGewichtSchip;
+        public double helft2;
+        public double RijMidden;
 
         public Schip()
         {
@@ -37,13 +37,13 @@ namespace schipv3.Classes
         }
 
         // lijsten voor containers
-        private List<Container> Normaal = new List<Container>();
+        public List<Container> Normaal = new List<Container>();
 
-        private List<Container> Gekoeld = new List<Container>();
-        private List<Container> Waardevol = new List<Container>();
-        private List<Container> GesoorteerdNormaal;
-        private List<Container> GesoorteerdGekoeld;
-        private List<Container> GesoorteerdWaardevol;
+        public List<Container> Gekoeld = new List<Container>();
+        public List<Container> Waardevol = new List<Container>();
+        public List<Container> GesoorteerdNormaal;
+        public List<Container> GesoorteerdGekoeld;
+        public List<Container> GesoorteerdWaardevol;
         public List<Rij> Rijen = new List<Rij>();
 
         private Rij rij = new Rij();
@@ -51,14 +51,14 @@ namespace schipv3.Classes
         // rij info
         public int MaxBreedteRijen;
 
-        private int MaximaalAantalRijen;
+        public int MaximaalAantalRijen;
 
         // kant info
-        private double GewichtLinks = 1;
+        public double GewichtLinks = 1;
 
-        private double GewichtRechts = 1;
+        public double GewichtRechts = 1;
 
-        internal bool OverMinimaalGewicht()
+        public bool OverMinimaalGewicht()
         {
             int minimaalGewicht = MaxGewichtSchip / 2;
             if (HuidigGewichtSchip < minimaalGewicht)
@@ -71,7 +71,7 @@ namespace schipv3.Classes
             }
         }
 
-        internal void MaakRijen()
+        public void MaakRijen()
         {
             int plekstapel = 0;
             int Plekrij = 0;
