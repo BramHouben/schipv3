@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace schipv3.Classes
@@ -56,6 +57,41 @@ namespace schipv3.Classes
         // kant info
         public double GewichtLinks = 1;
 
+        internal void PlaatsenMidden()
+        {
+            foreach (Container container in GesoorteerdGekoeld.ToList())
+            {
+                PlaatsGekoeldMidden(container);
+            }
+        }
+
+        private void PlaatsGekoeldMidden(Container container)
+        {
+            foreach (Rij rij in Rijen.Where(x => x.RijNummer == 0))
+            {
+                if (HuidigGewichtSchip < MaxGewichtSchip)
+                {
+                    if (GesoorteerdGekoeld.Count > 0)
+                    {
+                        foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek == RijMidden))
+                        {
+                            int breedte = stapel.BreedtePlek;
+                            if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
+                            {
+                                container.Hoogte = stapel.Containers.Count;
+                                container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
+                                container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
+                                stapel.Containers.Add(container);
+                                HuidigGewichtSchip += container.Gewicht;                       
+                                stapel.HuidigGewichtStapel += container.Gewicht;
+                                GesoorteerdGekoeld.RemoveAt(0);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         public double GewichtRechts = 1;
 
         public bool OverMinimaalGewicht()

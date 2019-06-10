@@ -45,6 +45,7 @@ namespace schipv3
             schip.PlaatsenGekoeld();
             schip.PlaatsenNormaal();
             schip.PlaatsenWaardevol();
+            schip.PlaatsenMidden();
         }
         private void BtnIndelen_Click(object sender, EventArgs e)
         {
