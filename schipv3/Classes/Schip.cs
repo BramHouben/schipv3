@@ -57,7 +57,7 @@ namespace schipv3.Classes
         // kant info
         public double GewichtLinks = 1;
 
-        internal void PlaatsenMidden()
+        internal void PlaatsenMiddenGekoeld()
         {
             foreach (Container container in GesoorteerdGekoeld.ToList())
             {
@@ -65,6 +65,54 @@ namespace schipv3.Classes
             }
         }
 
+        internal void PlaatsenMiddenNormaal()
+        {
+            foreach (Container container in GesoorteerdNormaal.ToList())
+            {
+                PlaatsNormaalMidden(container);
+            }
+        }
+
+        private void PlaatsNormaalMidden(Container container)
+        {
+            bool ingedeeld = false;
+            foreach (Rij rij in Rijen)
+            {
+                if (HuidigGewichtSchip < MaxGewichtSchip)
+                {
+                    if (GesoorteerdNormaal.Count > 0)
+                    {
+                        foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek == RijMidden))
+                        {
+                            if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
+                            {
+                                int breedte = stapel.BreedtePlek;
+                                container.Hoogte = stapel.Containers.Count;
+                                container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
+                                container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
+                                stapel.Containers.Add(container);
+                                // fix 1 rij//////////////////////////////
+                          
+                                ////////////////////////////////////////
+                                HuidigGewichtSchip += container.Gewicht;
+                                stapel.HuidigGewichtStapel += container.Gewicht;
+                                GesoorteerdNormaal.RemoveAt(0);
+                                ingedeeld = true;
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        if (ingedeeld == true)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         private void PlaatsGekoeldMidden(Container container)
         {
             foreach (Rij rij in Rijen.Where(x => x.RijNummer == 0))
