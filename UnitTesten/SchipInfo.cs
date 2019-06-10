@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using schipv3.Classes;
+using System.Collections.Generic;
 
 namespace UnitTesten
 {
@@ -46,5 +47,7 @@ namespace UnitTesten
             newschip.HuidigGewichtSchip = 1875000;
             Assert.IsTrue(newschip.OverMinimaalGewicht());
         }
+
+
     }
 }
