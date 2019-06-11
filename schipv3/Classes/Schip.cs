@@ -55,6 +55,7 @@ namespace schipv3.Classes
         public int MaximaalAantalRijen;
 
         // kant info
+        public double GewichtRechts = 1;
         public double GewichtLinks = 1;
 
         internal void PlaatsenMiddenGekoeld()
@@ -86,16 +87,19 @@ namespace schipv3.Classes
                         {
                             if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
                             {
-                                int breedte = stapel.BreedtePlek;
-                                container.Hoogte = stapel.Containers.Count;
-                                container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                stapel.Containers.Add(container);
+
+                                //container.Hoogte = stapel.Containers.Count;
+                                //container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, stapel.BreedtePlek };
+                                //container.Plek = new int[rij.RijNummer, stapel.BreedtePlek, container.Hoogte];
+                                //stapel.Containers.Add(container);
+                                stapel.ToevoegenContainer(container, rij.RijNummer);
                                 // fix 1 rij//////////////////////////////
-                          
+
                                 ////////////////////////////////////////
-                                HuidigGewichtSchip += container.Gewicht;
-                                stapel.HuidigGewichtStapel += container.Gewicht;
+
+                                GewichtToevoegenAanSchip(container);
+                                //HuidigGewichtSchip += container.Gewicht;
+                                //stapel.HuidigGewichtStapel += container.Gewicht;
                                 GesoorteerdNormaal.RemoveAt(0);
                                 ingedeeld = true;
                                 break;
@@ -123,15 +127,17 @@ namespace schipv3.Classes
                     {
                         foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek == RijMidden))
                         {
-                            int breedte = stapel.BreedtePlek;
+                            //int breedte = stapel.BreedtePlek;
                             if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
                             {
-                                container.Hoogte = stapel.Containers.Count;
-                                container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                stapel.Containers.Add(container);
-                                HuidigGewichtSchip += container.Gewicht;                       
-                                stapel.HuidigGewichtStapel += container.Gewicht;
+                                //container.Hoogte = stapel.Containers.Count;
+                                //container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, stapel.BreedtePlek };
+                                //container.Plek = new int[rij.RijNummer, stapel.BreedtePlek, container.Hoogte];
+                                //stapel.Containers.Add(container);
+                                stapel.ToevoegenContainer(container, rij.RijNummer);
+                                GewichtToevoegenAanSchip(container);
+                                //HuidigGewichtSchip += container.Gewicht;                       
+                                //stapel.HuidigGewichtStapel += container.Gewicht;
                                 GesoorteerdGekoeld.RemoveAt(0);
                                 break;
                             }
@@ -140,7 +146,7 @@ namespace schipv3.Classes
                 }
             }
         }
-        public double GewichtRechts = 1;
+
 
         public bool OverMinimaalGewicht()
         {
@@ -224,6 +230,27 @@ namespace schipv3.Classes
             }
         }
 
+        private void ToevoegenGewichtRechts(Container container)
+        {
+            GewichtRechts += container.Gewicht;
+        }
+        private void ToevoegenGewichtLinks(Container container)
+        {
+            if (helft2 == 1)
+            {
+                GewichtLinks = 1;
+            }
+            else
+            {
+                GewichtLinks += container.Gewicht;
+            }
+        }
+
+        public void GewichtToevoegenAanSchip(Container container)
+        {
+            HuidigGewichtSchip += container.Gewicht;
+        }
+
         private void CheckGewicht(Container container)
         {
             foreach (Rij rij in Rijen.Where(x => x.RijNummer == 0))
@@ -236,24 +263,25 @@ namespace schipv3.Classes
                         {
                             foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek < helft2))
                             {
-                                int breedte = stapel.BreedtePlek;
+                                //int breedte = stapel.BreedtePlek;
                                 if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
                                 {
-                                    container.Hoogte = stapel.Containers.Count;
-                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                    stapel.Containers.Add(container);
-                                    if (helft2 == 1)
-                                    {
-                                        GewichtLinks = 1;
-                                    }
-                                    else
-                                    {
-                                        GewichtLinks += container.Gewicht;
-                                    }
-
-                                    HuidigGewichtSchip += container.Gewicht;
-                                    stapel.HuidigGewichtStapel += container.Gewicht;
+                                    stapel.ToevoegenContainer(container, rij.RijNummer);
+                                    //container.Hoogte = stapel.Containers.Count;
+                                    //container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
+                                    //container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
+                                    //stapel.Containers.Add(container);
+                                    //if (helft2 == 1)
+                                    //{
+                                    //    GewichtLinks = 1;
+                                    //}
+                                    //else
+                                    //{
+                                    //    GewichtLinks += container.Gewicht;
+                                    //}
+                                    ToevoegenGewichtLinks(container);
+                                    GewichtToevoegenAanSchip(container);
+                                    //stapel.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdGekoeld.RemoveAt(0);
                                     break;
                                 }
@@ -263,20 +291,24 @@ namespace schipv3.Classes
                         {
                             foreach (Stapel stapel in rij.Stapel.Where(x => x.BreedtePlek >= helft2))
                             {
-                                int breedte = stapel.BreedtePlek;
+                                //int breedte = stapel.BreedtePlek;
                                 if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
                                 {
-                                    if (stapel.BreedtePlek == RijMidden)
+                                    if(RijMiddenFix(stapel)==true)
+                                    //if (stapel.BreedtePlek == RijMidden)
                                     {
                                         continue;
                                     }
-                                    container.Hoogte = stapel.Containers.Count;
-                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                    stapel.Containers.Add(container);
-                                    GewichtRechts += container.Gewicht;
-                                    HuidigGewichtSchip += container.Gewicht;
-                                    stapel.HuidigGewichtStapel += container.Gewicht;
+                                    //container.Hoogte = stapel.Containers.Count;
+                                    //container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, stapel.BreedtePlek };
+                                    //container.Plek = new int[rij.RijNummer, stapel.BreedtePlek, container.Hoogte];
+                                    //stapel.Containers.Add(container);
+                                    stapel.ToevoegenContainer(container, rij.RijNummer);
+                                    //GewichtRechts += container.Gewicht;
+                                    ToevoegenGewichtRechts(container);
+                                    //HuidigGewichtSchip += container.Gewicht;
+                                    GewichtToevoegenAanSchip(container);
+                                    //stapel.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdGekoeld.RemoveAt(0);
 
                                     break;
@@ -286,6 +318,15 @@ namespace schipv3.Classes
                     }
                 }
             }
+        }
+
+        private bool RijMiddenFix(Stapel stapel)
+        {
+            if (stapel.BreedtePlek == RijMidden)
+            {
+                return true;
+            }
+            else { return false; }
         }
 
         private void CheckGewichtNormaal(Container container)
@@ -303,23 +344,25 @@ namespace schipv3.Classes
                             {
                                 if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
                                 {
-                                    int breedte = stapel.BreedtePlek;
-                                    container.Hoogte = stapel.Containers.Count;
-                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                    stapel.Containers.Add(container);
+                                    //int breedte = stapel.BreedtePlek;
+                                    stapel.ToevoegenContainer(container, rij.RijNummer);
+                                    //container.Hoogte = stapel.Containers.Count;
+                                    //container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, stapel.BreedtePlek };
+                                    //container.Plek = new int[rij.RijNummer, stapel.BreedtePlek, container.Hoogte];
+                                    //stapel.Containers.Add(container);
                                     // fix 1 rij//////////////////////////////
-                                    if (helft2 == 1)
-                                    {
-                                        GewichtLinks = 1;
-                                    }
-                                    else
-                                    {
-                                        GewichtLinks += container.Gewicht;
-                                    }
+                                    //if (helft2 == 1)
+                                    //{
+                                    //    GewichtLinks = 1;
+                                    //}
+                                    //else
+                                    //{
+                                    //    GewichtLinks += container.Gewicht;
+                                    //}
+                                    ToevoegenGewichtLinks(container);
                                     ////////////////////////////////////////
-                                    HuidigGewichtSchip += container.Gewicht;
-                                    stapel.HuidigGewichtStapel += container.Gewicht;
+                                    GewichtToevoegenAanSchip(container);
+                                    //stapel.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdNormaal.RemoveAt(0);
                                     ingedeeld = true;
                                     break;
@@ -348,18 +391,23 @@ namespace schipv3.Classes
                             {
                                 if (stapel2.MaxGewichtEenContainer(container.Gewicht) == true && stapel2.CheckGewicht(container.Gewicht) == true)
                                 {
-                                    if (stapel2.BreedtePlek == RijMidden)
+                                    if (RijMiddenFix(stapel2) == true)
+                                    //if (stapel.BreedtePlek == RijMidden)
                                     {
                                         continue;
                                     }
-                                    int breedte = stapel2.BreedtePlek;
-                                    container.Hoogte = stapel2.Containers.Count;
-                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                    stapel2.Containers.Add(container);
-                                    GewichtRechts += container.Gewicht;
-                                    HuidigGewichtSchip += container.Gewicht;
-                                    stapel2.HuidigGewichtStapel += container.Gewicht;
+                                    //int breedte = stapel2.BreedtePlek;
+                                    //container.Hoogte = stapel2.Containers.Count;
+                                    //container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
+                                    //container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
+                                    //stapel2.Containers.Add(container);
+                                    stapel2.ToevoegenContainer(container, rij.RijNummer);
+                                    ToevoegenGewichtRechts(container);
+                                    ////////////////////////////////////////
+                                    GewichtToevoegenAanSchip(container);
+                                    //GewichtRechts += container.Gewicht;
+                                    //HuidigGewichtSchip += container.Gewicht;
+                                    //stapel2.HuidigGewichtStapel += container.Gewicht;
                                     GesoorteerdNormaal.RemoveAt(0);
                                     ingedeeld = true;
 
@@ -415,16 +463,19 @@ namespace schipv3.Classes
 
                                 if (stapel.MaxGewichtEenContainer(container.Gewicht) == true && stapel.CheckGewicht(container.Gewicht) == true)
                                 {
-                                    int breedte = stapel.BreedtePlek;
+                                    //int breedte = stapel.BreedtePlek;
                                     container.Hoogte = stapel.Containers.Count;
-                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                    if (KijkenVoorPlek(container, stapel, rij, breedte) == true)
+                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, stapel.BreedtePlek };
+                                    container.Plek = new int[rij.RijNummer, stapel.BreedtePlek, container.Hoogte];
+                                    if (KijkenVoorPlek(container, stapel, rij, stapel.BreedtePlek) == true)
                                     {
-                                        stapel.Containers.Add(container);
-                                        GewichtLinks += container.Gewicht;
-                                        HuidigGewichtSchip += container.Gewicht;
-                                        stapel.HuidigGewichtStapel += container.Gewicht;
+                                        //stapel.Containers.Add(container);
+                                        stapel.ToevoegenContainer(container, rij.RijNummer);
+                                        ToevoegenGewichtLinks(container);
+                                        //GewichtLinks += container.Gewicht;
+                                        //HuidigGewichtSchip += container.Gewicht;
+                                        GewichtToevoegenAanSchip(container);
+                                        //stapel.HuidigGewichtStapel += container.Gewicht;
                                         GesoorteerdWaardevol.RemoveAt(0);
                                         ingedeeld = true;
                                         break;
@@ -466,18 +517,20 @@ namespace schipv3.Classes
                                 }
                                 if (stapel2.MaxGewichtEenContainer(container.Gewicht) == true && stapel2.CheckGewicht(container.Gewicht) == true)
                                 {
-                                    int breedte = stapel2.BreedtePlek;
+                                    //int breedte = stapel2.BreedtePlek;
                        
                                     container.Hoogte = stapel2.Containers.Count;
-                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, breedte };
-                                    container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                    if (KijkenVoorPlek(container, stapel2, rij, breedte) == true)
+                                    container.PlekNormaleArray = new int[] { rij.RijNummer, container.Hoogte, stapel2.BreedtePlek };
+                                    container.Plek = new int[rij.RijNummer, stapel2.BreedtePlek, container.Hoogte];
+                                    if (KijkenVoorPlek(container, stapel2, rij, stapel2.BreedtePlek) == true)
                                     {
-                                        container.Plek = new int[rij.RijNummer, breedte, container.Hoogte];
-                                        stapel2.Containers.Add(container);
-                                        GewichtRechts += container.Gewicht;
-                                        HuidigGewichtSchip += container.Gewicht;
-                                        stapel2.HuidigGewichtStapel += container.Gewicht;
+                                        container.Plek = new int[rij.RijNummer, stapel2.BreedtePlek, container.Hoogte];
+                                        stapel2.ToevoegenContainer(container, rij.RijNummer);
+                                        ToevoegenGewichtRechts(container);
+                                        GewichtToevoegenAanSchip(container);
+                                        //GewichtRechts += container.Gewicht;
+                                        //HuidigGewichtSchip += container.Gewicht;
+                                        //stapel2.HuidigGewichtStapel += container.Gewicht;
                                         GesoorteerdWaardevol.RemoveAt(0);
                                         ingedeeld = true;
                                         break;

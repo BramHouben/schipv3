@@ -24,14 +24,13 @@ namespace schipv3.Classes
             List<Container> Containers = new List<Container>();
         }
 
-        internal void ToevoegenContainer(Container container)
+        internal void ToevoegenContainer(Container container, int Rijnummer)
         {
-
-         
-            Containers.Add(container);
+            container.Hoogte = Containers.Count;
+            container.PlekNormaleArray = new int[] {Rijnummer, container.Hoogte, BreedtePlek };
+            container.Plek = new int[Rijnummer, BreedtePlek, container.Hoogte];
             HuidigGewichtStapel += container.Gewicht;
-
-
+            Containers.Add(container);
         }
 
         internal bool CheckGewicht(int gewicht)
