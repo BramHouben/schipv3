@@ -97,5 +97,17 @@ namespace schipv3
             }
        
         }
+
+        private void BtnCheckBalans_Click(object sender, EventArgs e)
+        {
+            if (schip.CheckVerschil() == true)
+            {
+                MessageBox.Show("Gewicht goed verdeeld");
+            }
+            else
+            {
+                MessageBox.Show("Gewicht niet goed verdeeld");
+            }
+        }
     }
 }

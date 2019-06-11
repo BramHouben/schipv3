@@ -609,7 +609,7 @@ namespace schipv3.Classes
             return true;
         }
 
-        private bool CheckVerschil()
+        public bool CheckVerschil()
         {
             double Verschil = GewichtLinks / GewichtRechts;
             double UItslag = Verschil * 100;

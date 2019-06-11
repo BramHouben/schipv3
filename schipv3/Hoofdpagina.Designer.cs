@@ -46,6 +46,7 @@
             this.Aantalcontainers = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCheckBalans = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).BeginInit();
@@ -219,6 +220,11 @@
             // Aantalcontainers
             // 
             this.Aantalcontainers.Location = new System.Drawing.Point(34, 253);
+            this.Aantalcontainers.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.Aantalcontainers.Name = "Aantalcontainers";
             this.Aantalcontainers.Size = new System.Drawing.Size(120, 20);
             this.Aantalcontainers.TabIndex = 14;
@@ -251,6 +257,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
+            // btnCheckBalans
+            // 
+            this.btnCheckBalans.Location = new System.Drawing.Point(583, 378);
+            this.btnCheckBalans.Name = "btnCheckBalans";
+            this.btnCheckBalans.Size = new System.Drawing.Size(84, 23);
+            this.btnCheckBalans.TabIndex = 17;
+            this.btnCheckBalans.Text = "checkBalans";
+            this.btnCheckBalans.UseVisualStyleBackColor = true;
+            this.btnCheckBalans.Click += new System.EventHandler(this.BtnCheckBalans_Click);
+            // 
             // Hoofdpagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +274,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1278, 657);
+            this.Controls.Add(this.btnCheckBalans);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnWegvaren);
@@ -297,6 +314,7 @@
         private System.Windows.Forms.NumericUpDown Aantalcontainers;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnCheckBalans;
     }
 }
 
