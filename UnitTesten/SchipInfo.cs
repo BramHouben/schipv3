@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using schipv3.Classes;
-using System.Collections.Generic;
 
 namespace UnitTesten
 {
@@ -43,11 +42,9 @@ namespace UnitTesten
         [TestMethod]
         public void overMaximaalGewicht()
         {
-            Schip newschip = new Schip(5,5);
+            Schip newschip = new Schip(5, 5);
             newschip.HuidigGewichtSchip = 1875000;
             Assert.IsTrue(newschip.OverMinimaalGewicht());
         }
-
-
     }
 }

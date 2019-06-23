@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace schipv3.Classes
 {
-  public  class Stapel
+    public class Stapel
     {
         public int[] Plaats;
         public List<Container> Containers = new List<Container>();
@@ -27,7 +25,7 @@ namespace schipv3.Classes
         internal void ToevoegenContainer(Container container, int Rijnummer)
         {
             container.Hoogte = Containers.Count;
-            container.PlekNormaleArray = new int[] {Rijnummer, container.Hoogte, BreedtePlek };
+            container.PlekNormaleArray = new int[] { Rijnummer, container.Hoogte, BreedtePlek };
             container.Plek = new int[Rijnummer, BreedtePlek, container.Hoogte];
             HuidigGewichtStapel += container.Gewicht;
             Containers.Add(container);
@@ -67,7 +65,5 @@ namespace schipv3.Classes
             string plaatsString = String.Join(" ", Plaats.Cast<int>());
             return "Gewicht:    " + HuidigGewichtStapel + "   OP de plek   " + plaatsString;
         }
-
-
     }
 }

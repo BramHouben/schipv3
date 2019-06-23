@@ -1,12 +1,5 @@
 ﻿using schipv3.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace schipv3
@@ -14,6 +7,7 @@ namespace schipv3
     public partial class Hoofdpagina : Form
     {
         private Schip schip = new Schip();
+
         public Hoofdpagina()
         {
             InitializeComponent();
@@ -39,6 +33,7 @@ namespace schipv3
             schip.ToevoegenContainer(container);
             LbContainers.Text = container.ToString();
         }
+
         public void Indelen()
         {
             schip.SoorterenLijstenOpGewicht();
@@ -49,6 +44,7 @@ namespace schipv3
             schip.PlaatsenMiddenGekoeld();
             schip.PlaatsenMiddenNormaal();
         }
+
         private void BtnIndelen_Click(object sender, EventArgs e)
         {
             Indelen();
@@ -95,7 +91,6 @@ namespace schipv3
                 Classes.Container container = new Classes.Container("Normaal", 30000);
                 schip.ToevoegenContainer(container);
             }
-       
         }
 
         private void BtnCheckBalans_Click(object sender, EventArgs e)

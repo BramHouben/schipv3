@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace schipv3.Classes
 {
-  public  class Container
+    public class Container
     {
         public string Soort;
         public int[,,] Plek;
         public int[] PlekNormaleArray;
+
         public Container(string soort, int gewicht)
         {
             Soort = soort;
@@ -20,7 +17,6 @@ namespace schipv3.Classes
             {
                 throw new System.ArgumentException("Pas het gewicht aan!");
             }
-
         }
 
         public int Breedte { get; set; }
@@ -36,12 +32,10 @@ namespace schipv3.Classes
             string PlaatsvanContainer = "";
             if (Plek != null)
             {
-
                 string lengte = String.Join(",", Plek.GetLength(0));
                 string breedte = String.Join(",", Plek.GetLength(1));
                 string hoogte = String.Join(",", Plek.GetLength(2));
                 PlaatsvanContainer = "hoogte:  " + hoogte + "  Breedte  " + breedte + " Rijnummer  " + lengte;
-
             }
 
             return Soort + " " + Gewicht + "  " + PlaatsvanContainer;

@@ -47,6 +47,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCheckBalans = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).BeginInit();
@@ -209,11 +210,11 @@
             // 
             // btnmaakveelcontainers
             // 
-            this.btnmaakveelcontainers.Location = new System.Drawing.Point(34, 289);
+            this.btnmaakveelcontainers.Location = new System.Drawing.Point(53, 279);
             this.btnmaakveelcontainers.Name = "btnmaakveelcontainers";
             this.btnmaakveelcontainers.Size = new System.Drawing.Size(75, 23);
             this.btnmaakveelcontainers.TabIndex = 13;
-            this.btnmaakveelcontainers.Text = "button1";
+            this.btnmaakveelcontainers.Text = "Toevoegen";
             this.btnmaakveelcontainers.UseVisualStyleBackColor = true;
             this.btnmaakveelcontainers.Click += new System.EventHandler(this.Btnmaakveelcontainers_Click);
             // 
@@ -241,10 +242,11 @@
             this.groupBox1.Size = new System.Drawing.Size(212, 114);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Schipinfo";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.LbSoort);
             this.groupBox2.Controls.Add(this.BtnToevoegenContainer);
             this.groupBox2.Controls.Add(this.Aantalcontainers);
@@ -255,7 +257,7 @@
             this.groupBox2.Size = new System.Drawing.Size(200, 324);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Containers";
             // 
             // btnCheckBalans
             // 
@@ -266,6 +268,15 @@
             this.btnCheckBalans.Text = "checkBalans";
             this.btnCheckBalans.UseVisualStyleBackColor = true;
             this.btnCheckBalans.Click += new System.EventHandler(this.BtnCheckBalans_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(31, 237);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Normale 30000 toevoegen";
             // 
             // Hoofdpagina
             // 
@@ -291,6 +302,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -315,6 +327,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCheckBalans;
+        private System.Windows.Forms.Label label3;
     }
 }
 
