@@ -48,12 +48,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCheckBalans = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Aantalcontainers)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSchip
@@ -86,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 25);
+            this.label1.Location = new System.Drawing.Point(10, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 2;
@@ -165,34 +167,34 @@
             // LbContainers
             // 
             this.LbContainers.FormattingEnabled = true;
-            this.LbContainers.Location = new System.Drawing.Point(961, 81);
+            this.LbContainers.Location = new System.Drawing.Point(724, 42);
             this.LbContainers.Name = "LbContainers";
-            this.LbContainers.Size = new System.Drawing.Size(271, 290);
+            this.LbContainers.Size = new System.Drawing.Size(271, 316);
             this.LbContainers.TabIndex = 8;
             this.LbContainers.SelectedIndexChanged += new System.EventHandler(this.LbContainers_SelectedIndexChanged);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(57, 466);
+            this.listBox1.Location = new System.Drawing.Point(72, 381);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(458, 134);
+            this.listBox1.Size = new System.Drawing.Size(458, 147);
             this.listBox1.TabIndex = 9;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(756, 455);
+            this.listBox2.Location = new System.Drawing.Point(536, 381);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(459, 147);
             this.listBox2.TabIndex = 10;
             // 
             // btnIndelen
             // 
-            this.btnIndelen.Location = new System.Drawing.Point(477, 309);
+            this.btnIndelen.Location = new System.Drawing.Point(6, 77);
             this.btnIndelen.Name = "btnIndelen";
-            this.btnIndelen.Size = new System.Drawing.Size(75, 23);
+            this.btnIndelen.Size = new System.Drawing.Size(84, 23);
             this.btnIndelen.TabIndex = 11;
             this.btnIndelen.Text = "Indelen";
             this.btnIndelen.UseVisualStyleBackColor = true;
@@ -200,9 +202,9 @@
             // 
             // btnWegvaren
             // 
-            this.btnWegvaren.Location = new System.Drawing.Point(702, 308);
+            this.btnWegvaren.Location = new System.Drawing.Point(6, 48);
             this.btnWegvaren.Name = "btnWegvaren";
-            this.btnWegvaren.Size = new System.Drawing.Size(75, 23);
+            this.btnWegvaren.Size = new System.Drawing.Size(84, 23);
             this.btnWegvaren.TabIndex = 12;
             this.btnWegvaren.Text = "Wegvaren";
             this.btnWegvaren.UseVisualStyleBackColor = true;
@@ -237,7 +239,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.NudBreedte);
-            this.groupBox1.Location = new System.Drawing.Point(530, 97);
+            this.groupBox1.Location = new System.Drawing.Point(391, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(212, 114);
             this.groupBox1.TabIndex = 15;
@@ -252,16 +254,16 @@
             this.groupBox2.Controls.Add(this.Aantalcontainers);
             this.groupBox2.Controls.Add(this.NUDcontainer);
             this.groupBox2.Controls.Add(this.btnmaakveelcontainers);
-            this.groupBox2.Location = new System.Drawing.Point(72, 38);
+            this.groupBox2.Location = new System.Drawing.Point(72, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 324);
+            this.groupBox2.Size = new System.Drawing.Size(200, 316);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Containers";
             // 
             // btnCheckBalans
             // 
-            this.btnCheckBalans.Location = new System.Drawing.Point(583, 378);
+            this.btnCheckBalans.Location = new System.Drawing.Point(6, 19);
             this.btnCheckBalans.Name = "btnCheckBalans";
             this.btnCheckBalans.Size = new System.Drawing.Size(84, 23);
             this.btnCheckBalans.TabIndex = 17;
@@ -278,23 +280,33 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Normale 30000 toevoegen";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnCheckBalans);
+            this.groupBox3.Controls.Add(this.btnWegvaren);
+            this.groupBox3.Controls.Add(this.btnIndelen);
+            this.groupBox3.Location = new System.Drawing.Point(391, 188);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(212, 114);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Commands";
+            // 
             // Hoofdpagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1278, 657);
-            this.Controls.Add(this.btnCheckBalans);
+            this.ClientSize = new System.Drawing.Size(1035, 555);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnWegvaren);
-            this.Controls.Add(this.btnIndelen);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.LbContainers);
             this.Name = "Hoofdpagina";
-            this.Text = "Form1";
+            this.Text = "SchipMenu";
             ((System.ComponentModel.ISupportInitialize)(this.NudLengte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudBreedte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDcontainer)).EndInit();
@@ -303,6 +315,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -328,6 +341,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCheckBalans;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
